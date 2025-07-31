@@ -1,23 +1,28 @@
-import Hero from '@/components/sections/Hero';
-import Features from '@/components/sections/Features';
-import Pricing from '@/components/sections/Pricing';
-import Testimonials from '@/components/sections/Testimonials';
-import FAQ from '@/components/sections/FAQ';
-import Footer from '@/components/sections/Footer';
-import Navbar from '@/components/Navbar';
-import ClientAnimationWrapper from '@/components/ClientAnimationWrapper';
+import dynamic from 'next/dynamic';
+
+// Dynamically import client components to avoid SSR issues
+const Navbar = dynamic(() => import('@/components/Navbar'), { ssr: false });
+const Hero = dynamic(() => import('@/components/sections/Hero'), { ssr: false });
+const Features = dynamic(() => import('@/components/sections/Features'), { ssr: false });
+const Pricing = dynamic(() => import('@/components/sections/Pricing'), { ssr: false });
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials'), { ssr: false });
+const FAQ = dynamic(() => import('@/components/sections/FAQ'), { ssr: false });
+const Footer = dynamic(() => import('@/components/sections/Footer'), { ssr: false });
+const ClientAnimationWrapper = dynamic(() => import('@/components/ClientAnimationWrapper'), { ssr: false });
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <Navbar />
       <ClientAnimationWrapper>
-        <Navbar />
-        <Hero />
-        <Features />
-        <Pricing />
-        <Testimonials />
-        <FAQ />
-        <Footer />
+        <div>
+          <Hero />
+          <Features />
+          <Pricing />
+          <Testimonials />
+          <FAQ />
+          <Footer />
+        </div>
       </ClientAnimationWrapper>
     </main>
   );
