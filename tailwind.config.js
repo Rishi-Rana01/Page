@@ -30,10 +30,6 @@ module.exports = {
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
-      backdropFilter: {
-        'none': 'none',
-        'blur': 'blur(20px)',
-      },
     },
   },
   plugins: [],
